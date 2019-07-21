@@ -28,5 +28,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 docker build -t hao .
 
 # run a container 
-docker run --name hao -p 80:80 -v /home/alex/workspace/nodejs-hao/hao.conf:/etc/nginx/conf.d/default.conf:ro -d --restart=always hao:latest
+docker run \
+--name hao \
+-p 80:80 \
+-v /home/alex/workspace/nodejs-hao/hao.conf:/etc/nginx/conf.d/default.conf:ro \
+-d --restart=always \
+hao:latest
 ```
