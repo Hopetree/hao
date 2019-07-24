@@ -11,7 +11,7 @@ import Search from "../components/search";
 export default {
     data() {
         return {
-            msg: "Welcome to my Vue.js App, home page"
+            msg: "Welcome to my Vue.js App"
         };
     },
     components: {
