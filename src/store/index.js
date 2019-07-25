@@ -27,11 +27,6 @@ const state = {
             key: 'q'
         }
     },
-    searchData: {
-        type: 'baidu',
-        url: 'https://www.baidu.com/s',
-        key: 'wd'
-    }
 }
 
 const getters = {
