@@ -5,13 +5,6 @@ pipeline{
 		timestamps()
 	}
 	stages {
-		stage('Print') {
-			agent { label 'master' }
-			steps{
-				echo '这个任务是主节点执行，其他任务都是从节点执行'
-				sh 'pwd && ls -l'
-			}
-		}
 		stage('Clone sources') {
 			options {
 				// SECONDS|MINUTES|HOURS
