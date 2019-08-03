@@ -16,17 +16,21 @@ pipeline{
 		}
 		stage('Build vue') {
 			steps{
-				sh '''npm install
+				sh '''
+				npm install
 				npm audit fix
-				npm run build'''  
+				npm run build
+				'''  
 			}
 		}
 		stage('Build image') {
 			steps{
-				sh '''pwd && ls -l 
+				sh '''
+				pwd && ls -l 
 				docker build -t hao --no-cache .
 				docker images|grep none|awk '{print $3}'|xargs docker image rm > /dev/null 2>&1
-				docker images'''  
+				docker images
+				'''  
 			}
 		}
 		stage('Clean') {
