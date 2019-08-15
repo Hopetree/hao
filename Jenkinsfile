@@ -16,7 +16,7 @@ pipeline {
                 timeout(time: 30, unit: 'SECONDS')
             }
             steps {
-                git credentialsId: "${GITHUB_USER_ID}", url: 'https://github.com/Hopetree/hao.git'
+                git (credentialsId: "${GITHUB_USER_ID}", url: 'https://github.com/Hopetree/hao.git', branch: 'master')
             }
         }
         stage('Make vue') {
