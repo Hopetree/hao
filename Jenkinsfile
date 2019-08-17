@@ -8,7 +8,8 @@ pipeline {
     environment {
         GITHUB_USER_ID = '2b98d5a0-65f8-4961-958d-ad3620541256'
         ALIYUN_USER_ID = '06989ce7-86fb-43ca-aec0-313d260af382'
-        IMAGE_TAG = 'registry.cn-shenzhen.aliyuncs.com/tendcode/hao:latest'
+        HAO_IMAGE_TAG = 'registry.cn-shenzhen.aliyuncs.com/tendcode/hao:latest'
+        NODE_IAMGE_TAG = 'node:latest'
     }
     stages {
         stage('Clone sources') {
@@ -21,20 +22,24 @@ pipeline {
         }
         stage('Make vue') {
             steps {
-                sh "npm install && npm audit fix && npm run build"
+                withDockerContainer(image: "${NODE_IAMGE_TAG}") {
+                    sh "npm config set registry https://registry.npm.taobao.org/"
+                    sh "npm install && npm audit fix && npm run build"
+                    sh "pwd && ls -l"
+                }
             }
         }
         stage('Build image') {
             steps {
-                sh '''pwd && ls -l
-                docker build -t ${IMAGE_TAG} --no-cache .
-                docker images'''
+                script {
+                    docker.build("${HAO_IMAGE_TAG}")
+                }
             }
         }
         stage('Push image') {
             steps {
                 withDockerRegistry(credentialsId: "${ALIYUN_USER_ID}", url: 'http://registry.cn-shenzhen.aliyuncs.com') {
-                    sh "docker push ${IMAGE_TAG}"
+                    sh "docker push ${HAO_IMAGE_TAG}"
                 }
             }
         }
@@ -42,6 +47,7 @@ pipeline {
     post {
         always {
             sh "docker images|grep '<none>'|awk '{print \$3}'|xargs docker image rm > /dev/null 2>&1 || true"
+            sh "docker images"
             cleanWs()
         }
     }
