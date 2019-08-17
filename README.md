@@ -31,7 +31,11 @@ docker build -t hao .
 docker run \
 --name hao \
 -p 80:80 \
--v /home/alex/workspace/nodejs-hao/hao.conf:/etc/nginx/conf.d/default.conf:ro \
+-v ./hao.conf:/etc/nginx/conf.d/default.conf:ro \
 -d --restart=always \
 hao:latest
+
+# run by docker-compose
+echo "HAO_IMAGE=hao:latest" > .env
+docker-compose up -d
 ```
