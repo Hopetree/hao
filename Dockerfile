@@ -1,8 +1,7 @@
 FROM node:latest AS stage
 WORKDIR /opt/build
 COPY . .
-RUN npm config set registry https://registry.npm.taobao.org/ && \
-    npm install && \
+RUN npm install && \
     npm audit fix && \
     npm run build
 
