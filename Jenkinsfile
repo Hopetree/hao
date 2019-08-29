@@ -8,8 +8,7 @@ pipeline {
     environment {
         GITHUB_USER_ID = '2b98d5a0-65f8-4961-958d-ad3620541256'
         ALIYUN_USER_ID = '06989ce7-86fb-43ca-aec0-313d260af382'
-        HAO_IMAGE_TAG = 'registry.cn-shenzhen.aliyuncs.com/tendcode/hao:latest'
-        NODE_IAMGE_TAG = 'node:latest'
+        HAO_IMAGE_TAG = 'registry.cn-shenzhen.aliyuncs.com/tendcode/hao:test'
     }
     stages {
         stage('Clone sources') {
@@ -18,15 +17,6 @@ pipeline {
             }
             steps {
                 git (credentialsId: "${GITHUB_USER_ID}", url: 'https://github.com/Hopetree/hao.git', branch: 'master')
-            }
-        }
-        stage('Make vue') {
-            steps {
-                withDockerContainer(image: "${NODE_IAMGE_TAG}") {
-                    sh "npm config set registry https://registry.npm.taobao.org/"
-                    sh "npm install && npm audit fix && npm run build"
-                    sh "pwd && ls -l"
-                }
             }
         }
         stage('Build image') {
