@@ -14,7 +14,7 @@ Vue.use(ElementUI)
 
 const router = new VueRouter({
     // 去掉url中#
-    // mode: 'history',
+    mode: 'history',
     routes: routes
 })
 
