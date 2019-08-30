@@ -1,7 +1,8 @@
 FROM node:latest AS stage
 WORKDIR /opt/build
 COPY . .
-RUN npm install --registry=https://registry.npm.taobao.org && \
+RUN npm config set registry https://registry.npm.taobao.org && \
+    npm install && \
     npm run build
 
 FROM nginx:latest
