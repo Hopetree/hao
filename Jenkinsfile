@@ -73,7 +73,6 @@ pipeline {
             // 清理临时容器和镜像
             sh "docker ps -a|grep Exited|awk '{print \$1}'|xargs -I {} docker rm {}"
             sh "docker images|grep '<none>'|awk '{print \$3}'|xargs -I {} docker image rm {} > /dev/null 2>&1 || true"
-            sh "docker images"
             cleanWs()
         }
     }
