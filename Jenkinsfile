@@ -32,7 +32,7 @@ pipeline {
         stage('docker build') {
             steps {
                 script {
-                    sh "docker build --no-cache -t ${IMAGE_NAME} ."
+                    sh "docker build -t ${IMAGE_NAME} ."
                     sh "docker save ${IMAGE_NAME} > ${IMAGE_TAR}"
                     sh "pwd && ls -l"
                 }
@@ -63,7 +63,7 @@ pipeline {
                 script {
                     def rootDir = pwd()
                     step_deploy = load "${rootDir}/deploy.groovy"
-                    step_deploy.deploy("${SSH_NAME}", "${IMAGE_TAR}", "${SSH_DIR}")
+                    step_deploy.deploy("${SSH_NAME}", "${IMAGE_TAR}", "${SSH_DIR}", "${IMAGE_NAME}")
                 }
             }
         }

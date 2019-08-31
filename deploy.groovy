@@ -1,4 +1,4 @@
-def deploy(vm_name, image_tar, service_dir) {
+def deploy(vm_name, image_tar, service_dir, image_name) {
     sshPublisher(publishers: [
         sshPublisherDesc(
             configName: "${vm_name}", 
@@ -34,7 +34,7 @@ def deploy(vm_name, image_tar, service_dir) {
                 sshTransfer(
                     cleanRemote: false, 
                     excludes: '', 
-                    execCommand: "cd ${service_dir} && pwd && ls -l", 
+                    execCommand: "cd ${service_dir} && docker-compose down && echo HAO_IMAGE=${image_name} > .env && docker-compose up -d", 
                     execTimeout: 120000, 
                     flatten: false, 
                     makeEmptyDirs: false, 
