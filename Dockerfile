@@ -1,9 +1,7 @@
 FROM node:slim AS stage
 WORKDIR /opt/build
 COPY . .
-RUN npm -v && \
-    npm config set registry https://registry.npm.taobao.org && \
-    npm install -g npm && npm -v && \
+RUN npm config set registry https://registry.npm.taobao.org && \
     npm install && \
     npm run build
 
