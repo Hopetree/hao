@@ -1,6 +1,6 @@
 <template>
-    <div id="search-component">
-        <el-form :inline="true" method="get" target="_blank" :action="scdata.url">
+    <el-col :sm="20" :md="12" :lg="8" id="search-component">
+        <el-form method="get" target="_blank" :action="scdata.url">
             <el-form-item>
                 <el-input placeholder="请输入搜索内容" :name="scdata.key" v-model="sctext">
                     <el-dropdown slot="prepend" placement="bottom" @command="changedata">
@@ -26,7 +26,8 @@
                 </el-input>
             </el-form-item>
         </el-form>
-    </div>
+    </el-col>
+    
 </template>
 
 <script>
@@ -58,9 +59,6 @@ export default {
 </script>
 
 <style scoped>
-.el-input {
-    width: 40rem;
-}
 img {
     width: 1.2rem;
     margin: 0rem 0.2rem -0.2rem 0rem;
