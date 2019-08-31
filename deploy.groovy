@@ -23,7 +23,7 @@ def deploy(vm_name, image_tar, service_dir) {
                 sshTransfer(
                     cleanRemote: false, 
                     excludes: '', 
-                    execCommand: "docker images|grep none|awk \'{print $3}\'|xargs docker image rm > /dev/null 2>&1 || true", 
+                    execCommand: "docker images|grep none|awk '{print \$3}'|xargs docker image rm > /dev/null 2>&1 || true", 
                     execTimeout: 120000, 
                     flatten: false, 
                     makeEmptyDirs: false, 
