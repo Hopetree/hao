@@ -13,6 +13,7 @@
     border-left: 0;
     border-right: 0;
     padding: 0 15px 0 10px;
+    line-height: 1rem;
 }
 #search-component .el-input__inner:focus {
     border-color: #dcdfe6;
