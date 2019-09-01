@@ -1,5 +1,5 @@
 <template>
-    <el-col :sm="20" :md="12" :lg="8" id="search-component">
+    <el-col :xs="20" :sm="16" :md="12" :lg="8" id="search-component">
         <el-form method="get" target="_blank" :action="scdata.url">
             <el-form-item>
                 <el-input placeholder="请输入搜索内容" :name="scdata.key" v-model="sctext">
