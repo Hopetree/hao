@@ -17,7 +17,7 @@ pipeline {
         IMAGE_NAME = 'hao:test'
         REMOTE_IMAGE_NAME = 'registry.cn-shenzhen.aliyuncs.com/tendcode/hao:lts'
         IMAGE_TAR = 'hao.tar'
-		SSH_NAME = 'CentOS-3-root'
+        SSH_NAME = 'CentOS-3-root'
         SSH_DIR = '/opt/cloud/hao'
     }
     stages {
