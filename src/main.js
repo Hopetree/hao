@@ -7,6 +7,8 @@ import ElementUI from 'element-ui'
 import routes from './router'
 import store from './store/index'
 
+import '../static/css/main.css'
+
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)

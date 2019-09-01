@@ -1,33 +1,27 @@
 <template>
-    <el-col :xs="20" :sm="16" :md="12" :lg="8" id="search-component">
-        <el-form method="get" target="_blank" :action="scdata.url">
-            <el-form-item>
-                <el-input placeholder="请输入搜索内容" :name="scdata.key" v-model="sctext">
-                    <el-dropdown slot="prepend" placement="bottom" @command="changedata">
-                        <span class="el-dropdown-link">
-                            <img :src="scdata.icon" alt="scdata.title" />
-                            <i class="el-icon-arrow-down el-icon--right"></i>
-                        </span>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item
-                                v-for="each_type in sctypelist"
-                                :key="each_type"
-                                :command="each_type"
-                            >
-                                <img
-                                    :src="$store.state.searchList[each_type].icon"
-                                    :alt="each_type"
-                                />
-                                {{ $store.state.searchList[each_type].title }}
-                            </el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
-                    <el-button slot="append" icon="el-icon-search" native-type="submit"></el-button>
-                </el-input>
-            </el-form-item>
-        </el-form>
-    </el-col>
-    
+    <el-form method="get" target="_blank" :action="scdata.url" id="search-component">
+        <el-form-item>
+            <el-input placeholder="请输入搜索内容" :name="scdata.key" v-model="sctext">
+                <el-dropdown slot="prepend" placement="bottom" @command="changedata">
+                    <span class="el-dropdown-link">
+                        <img :src="scdata.icon" alt="scdata.title" />
+                        <i class="el-icon-arrow-down el-icon--right"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item
+                            v-for="each_type in sctypelist"
+                            :key="each_type"
+                            :command="each_type"
+                        >
+                            <img :src="$store.state.searchList[each_type].icon" :alt="each_type" />
+                            {{ $store.state.searchList[each_type].title }}
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+                <el-button slot="append" icon="el-icon-search" native-type="submit"></el-button>
+            </el-input>
+        </el-form-item>
+    </el-form>
 </template>
 
 <script>

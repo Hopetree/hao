@@ -1,7 +1,11 @@
 <template>
-    <el-row type="flex" class="row-bg" justify="center">
-        <component-search></component-search>
-    </el-row>
+    <div>
+        <el-row type="flex" class="row-bg" justify="center">
+            <el-col :xs="20" :sm="16" :md="12" :lg="8" id="col-search">
+                <component-search></component-search>
+            </el-col>
+        </el-row>
+    </div>
 </template>
 
 <script>
@@ -15,36 +19,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-#search-component {
+<style scoped>
+#col-search {
     margin-top: 10%;
 }
-#search-component .el-input {
-    border-radius: 24px;
-    box-shadow: 0px 1px 6px 0px rgba(115, 115, 129, 0.28);
-}
-#search-component .el-input-group__prepend {
-    background-color: white;
-    padding: 0 5px 0 20px;
-    border-radius: 24px 0 0 24px;
-    cursor: pointer;
-}
-#search-component .el-input__inner {
-    border-left: 0;
-    border-right: 0;
-    padding: 0 15px 0 10px;
-}
-#search-component .el-input__inner:focus {
-    border-color: #dcdfe6;
-}
-#search-component .el-input__inner:hover {
-    border-color: #dcdfe6;
-}
-#search-component .el-input-group__append {
-    background-color: white;
-    border-radius: 0 24px 24px 0;
-}
-#search-component .el-icon--right {
-    margin-left: 0;
-}
-</style>
+</style>>
