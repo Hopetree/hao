@@ -21,11 +21,11 @@ const state = {
             key: 'q',
             icon: img_path + 'icon_bing.png'
         },
-        sougou: {
+        sogou: {
             title: '搜狗',
             url: 'https://www.sogou.com/web',
             key: 'query',
-            icon: img_path + 'icon_sougou.png'
+            icon: img_path + 'icon_sogou.png'
         },
         so: {
             title: '360搜索',
