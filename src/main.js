@@ -3,11 +3,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
+import axios from 'axios'
 
 import routes from './router'
 import store from './store/index'
 
 import './assets/css/main.css'
+
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 

@@ -56,7 +56,7 @@ pipeline {
         stage("deploy") {
             when {
                 expression {
-                    "${params.GITHUB_BRANCH}" == "develop"
+                    "${params.GITHUB_BRANCH}" != "master"
                 }
             }
             steps {
