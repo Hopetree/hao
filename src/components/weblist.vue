@@ -11,7 +11,7 @@ export default {
         };
     },
     created() {
-        this.$axios.get("/apis/su", { params: { wd: "python" } }).then(ret => {
+        this.$axios.get("/baidu/su", { params: { wd: "python" } }).then(ret => {
             console.log(ret);
             this.test_str = ret.data
         });
