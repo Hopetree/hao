@@ -5,22 +5,15 @@
                 <component-search></component-search>
             </el-col>
         </el-row>
-        <el-row type="flex" class="row-bg" justify="center">
-            <el-col :xs="24" :sm="20" :md="12">
-                <component-weblist></component-weblist>
-            </el-col>
-        </el-row>
     </div>
 </template>
 
 <script>
 import Search from "../components/search";
-import WebList from "../components/weblist";
 export default {
     components: {
         // 绑定组件标签
         "component-search": Search,
-        "component-weblist": WebList
     }
 };
 </script>
