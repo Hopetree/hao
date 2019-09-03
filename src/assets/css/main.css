@@ -28,3 +28,20 @@
 #search-component .el-icon--right {
     margin-left: 0;
 }
+
+/* 推荐词下拉 */
+#search-component .el-autocomplete {
+    width: 100%;
+}
+.suggestion-word-popper[x-placement^=bottom] {
+    margin-top: 0;
+    border-radius: 0 0 4px 4px;
+    border: none;
+}
+.suggestion-word-popper[x-placement^=bottom] .popper__arrow {
+    display: none;
+}
+
+.suggestion-word-popper[x-placement^=bottom] .el-autocomplete-suggestion__wrap {
+    padding: 0 0 10px 0;
+}

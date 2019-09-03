@@ -1,35 +1,36 @@
 <template>
-    <div>
-        <el-form method="get" target="_blank" :action="scdata.url" id="search-component">
-            <el-form-item>
-                <el-input placeholder="请输入搜索内容" :name="scdata.key" v-model="sctext" clearable>
-                    <el-dropdown slot="prepend" placement="bottom" @command="changedata">
-                        <span class="el-dropdown-link">
-                            <img :src="scdata.icon" alt="scdata.title" />
-                            <i class="el-icon-arrow-down el-icon--right"></i>
-                        </span>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item
-                                v-for="each_type in sctypelist"
-                                :key="each_type"
-                                :command="each_type"
-                            >
-                                <img
-                                    :src="$store.state.searchList[each_type].icon"
-                                    :alt="each_type"
-                                />
-                                {{ $store.state.searchList[each_type].title }}
-                            </el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
-                    <el-button slot="append" icon="el-icon-search" native-type="submit"></el-button>
-                </el-input>
-            </el-form-item>
-        </el-form>
-        <ul v-if="suggestion">
-            <li v-for="sug in suggestion" :key="sug">{{ sug }}</li>
-        </ul>
-    </div>
+    <el-form method="get" target="_blank" :action="scdata.url" id="search-component">
+        <el-form-item>
+            <el-autocomplete
+                placeholder="请输入搜索内容"
+                :name="scdata.key"
+                v-model="sctext"
+                clearable
+                popper-class="suggestion-word-popper"
+                :trigger-on-focus="false"
+                :fetch-suggestions="querySearch"
+                @select="handleSelect"
+            >
+                <el-dropdown slot="prepend" placement="bottom" @command="changedata">
+                    <span class="el-dropdown-link">
+                        <img :src="scdata.icon" alt="scdata.title" />
+                        <i class="el-icon-arrow-down el-icon--right"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item
+                            v-for="each_type in sctypelist"
+                            :key="each_type"
+                            :command="each_type"
+                        >
+                            <img :src="$store.state.searchList[each_type].icon" :alt="each_type" />
+                            {{ $store.state.searchList[each_type].title }}
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+                <el-button slot="append" icon="el-icon-search" native-type="submit"></el-button>
+            </el-autocomplete>
+        </el-form-item>
+    </el-form>
 </template>
 
 <script>
@@ -51,24 +52,38 @@ export default {
         this.sctypelist = this.$store.getters.searchTypes;
         this.scdata = this.$store.state.searchList[default_type];
     },
-    watch: {
-        sctext(new_val) {
-            this.$axios
-                .get("/baidu/su", { params: { wd: new_val } })
-                .then(ret => {
-                    // 如果接口返回有值的话，正则匹配到的应该是一个列表
-                    var json_str = ret.data.match(/s:(\[.*\])}\);/);
-                    if (json_str) {
-                        this.suggestion = JSON.parse(json_str[1]);
-                    }
-                });
-        }
-    },
     methods: {
         // 选择表单变化的时候同步数据
         changedata: function(command) {
             this.sctype = command;
             this.scdata = this.$store.state.searchList[command];
+        },
+        // 推荐词触发
+        querySearch: function(queryString, callback) {
+            var results = [];
+            this.$axios
+                .get("/baidu/su", { params: { wd: queryString } })
+                .then(ret => {
+                    // 如果接口返回有值的话，正则匹配到的应该是一个列表，转为字典
+                    var json_str = ret.data.match(/s:(\[.*\])}\);/);
+                    if (json_str) {
+                        var word_list = JSON.parse(json_str[1]);
+                        for (var i = 0; i < word_list.length; i++) {
+                            if (i < 6) {
+                                results[i] = { value: word_list[i] };
+                            }
+                        }
+                    }
+                    callback(results);
+                });
+        },
+        handleSelect: function(item) {
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => {
+                let link =
+                    this.scdata.url + "?" + this.scdata.key + "=" + item.value;
+                window.open(link);
+            }, 100);
         }
     }
 };
