@@ -77,13 +77,20 @@ export default {
                     callback(results);
                 });
         },
+        // 选择推荐词后的回调函数
         handleSelect: function(item) {
-            clearTimeout(this.timeout);
-            this.timeout = setTimeout(() => {
-                let link =
-                    this.scdata.url + "?" + this.scdata.key + "=" + item.value;
-                window.open(link);
-            }, 100);
+            // document.getElementById("search-component").submit()
+            this.closePopler();
+            let link =
+                this.scdata.url + "?" + this.scdata.key + "=" + item.value;
+            window.open(link);
+        },
+        // 关闭推荐词下拉框
+        closePopler: function() {
+            var dom = document.getElementsByClassName(
+                "suggestion-word-popper"
+            )[0];
+            dom.style.display = "none";
         }
     }
 };
