@@ -42,15 +42,19 @@ export default {
     },
     created() {
         // 设置默认值
-        var default_type = this.$store.getters.searchTypes[0];
+        var last_type = sessionStorage.getItem("last_type");
+        var default_type = last_type
+            ? last_type
+            : this.$store.getters.searchTypes[0];
         this.sctype = default_type;
         this.sctypelist = this.$store.getters.searchTypes;
         this.scdata = this.$store.state.searchList[default_type];
     },
     methods: {
-        // 选择表单变化的时候同步数据
+        // 选择表单变化的时候同步数据，同时添加到session
         changedata: function(command) {
             this.sctype = command;
+            sessionStorage.setItem("last_type", command);
             this.scdata = this.$store.state.searchList[command];
         }
     }
