@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row type="flex" class="row-bg" justify="center">
-            <el-col :xs="20" :sm="16" :md="12" :lg="8" :xl="6" id="col-search">
+            <el-col :xs="20" :sm="16" :md="12" :lg="8" id="col-search">
                 <component-search></component-search>
             </el-col>
         </el-row>

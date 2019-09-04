@@ -2,7 +2,12 @@
     <el-form method="get" target="_blank" :action="scdata.url" id="search-component">
         <el-form-item>
             <el-input placeholder="请输入搜索内容" :name="scdata.key" v-model="sctext" clearable>
-                <el-dropdown slot="prepend" placement="bottom" @command="changedata">
+                <el-dropdown
+                    trigger="click"
+                    slot="prepend"
+                    placement="bottom"
+                    @command="changedata"
+                >
                     <span class="el-dropdown-link">
                         <img :src="scdata.icon" alt="scdata.title" />
                         <i class="el-icon-arrow-down el-icon--right"></i>
