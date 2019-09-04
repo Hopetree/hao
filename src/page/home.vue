@@ -1,19 +1,16 @@
 <template>
-    <div class="home">
-        <h1>{{ msg }}</h1>
-        <h2>Home page</h2>
-        <component-search></component-search>
+    <div>
+        <el-row type="flex" class="row-bg" justify="center">
+            <el-col :xs="20" :sm="16" :md="12" :lg="8" id="col-search">
+                <component-search></component-search>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script>
 import Search from "../components/search";
 export default {
-    data() {
-        return {
-            msg: "Welcome to my Vue.js App"
-        };
-    },
     components: {
         // 绑定组件标签
         "component-search": Search
@@ -23,4 +20,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-</style>
+#col-search {
+    margin-top: 10%;
+}
+</style>>

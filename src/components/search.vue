@@ -1,15 +1,32 @@
 <template>
-    <div id="search-component">
-        <h3>搜索组件</h3>
-        <form role="search" method="get" id="searchform" :action="scdata.url" target="_blank">
-            <select v-model="sctype" @change="changedata(sctype)">
-                <option v-for="type in sctypelist" :key="type" :value="type">{{ type }}</option>
-            </select>
-            <input type="search" :name="scdata.key" placeholder="搜索" />
-            <input type="submit" value="Search" />
-            <!-- /input-group -->
-        </form>
-    </div>
+    <el-form method="get" target="_blank" :action="scdata.url" id="search-component">
+        <el-form-item>
+            <el-input placeholder="请输入搜索内容" :name="scdata.key" v-model="sctext" clearable>
+                <el-dropdown
+                    trigger="click"
+                    slot="prepend"
+                    placement="bottom"
+                    @command="changedata"
+                >
+                    <span class="el-dropdown-link">
+                        <img :src="scdata.icon" alt="scdata.title" />
+                        <i class="el-icon-arrow-down el-icon--right"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item
+                            v-for="each_type in sctypelist"
+                            :key="each_type"
+                            :command="each_type"
+                        >
+                            <img :src="$store.state.searchList[each_type].icon" :alt="each_type" />
+                            {{ $store.state.searchList[each_type].title }}
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
+                <el-button slot="append" icon="el-icon-search" native-type="submit"></el-button>
+            </el-input>
+        </el-form-item>
+    </el-form>
 </template>
 
 <script>
@@ -18,26 +35,31 @@ export default {
         return {
             // 从store里面读取数据并使用
             sctype: "",
+            scdata: {},
             sctypelist: [],
-            scdata: {}
+            sctext: ""
         };
     },
     created() {
         // 设置默认值
         var default_type = this.$store.getters.searchTypes[0];
-        this.sctype = default_type
+        this.sctype = default_type;
         this.sctypelist = this.$store.getters.searchTypes;
         this.scdata = this.$store.state.searchList[default_type];
     },
-    mounted: {},
     methods: {
         // 选择表单变化的时候同步数据
-        changedata: function(key) {
-            this.scdata = this.$store.state.searchList[key];
+        changedata: function(command) {
+            this.sctype = command;
+            this.scdata = this.$store.state.searchList[command];
         }
     }
 };
 </script>
 
 <style scoped>
+img {
+    width: 1.2rem;
+    margin: 0rem 0.2rem -0.2rem 0rem;
+}
 </style>

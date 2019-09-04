@@ -1,10 +1,9 @@
-FROM node:latest AS stage
+FROM node:slim AS stage
 WORKDIR /opt/build
 COPY . .
-RUN npm config set registry https://registry.npm.taobao.org/ && \
+RUN npm config set registry https://registry.npm.taobao.org && \
     npm install && \
-    npm audit fix && \
     npm run build
 
-FROM nginx:latest
+FROM nginx:stable-alpine
 COPY --from=stage /opt/build/dist /usr/share/nginx/html

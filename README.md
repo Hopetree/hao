@@ -2,6 +2,8 @@
 
 > A simple navigation site project
 
+项目雏形（未完成，持续更新中）: <https://hao.tendcode.com>
+
 ## Build Setup
 
 ``` bash
@@ -20,14 +22,13 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-
 ## Build docker image
 
 ```bash
 # build a simple docker image from nginx
 docker build -t hao .
 
-# run a container 
+# run a container
 docker run \
 --name hao \
 -p 80:80 \
