@@ -9,6 +9,12 @@ const img_path = '/static/img/'
 
 const state = {
     searchList: {
+        doge: {
+            title: 'Doge',
+            url: 'https://www.dogedoge.com/results',
+            key: 'q',
+            icon: img_path + 'icon_doge.ico'
+        },
         baidu: {
             title: '百度',
             url: 'https://www.baidu.com/s',
