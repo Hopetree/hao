@@ -58,7 +58,7 @@ const linkList = {
         },
         {
             title: '腾讯云',
-            url: 'https://cloud.tencent.com/',
+            url: 'https://cloud.tencent.com/act/cps/redirect?redirect=1047&cps_key=1bea2ee5dee7264320c77d83eb5adc8e',
             icon: img_path + 'cloudqq.png'
         },
         {
@@ -106,7 +106,7 @@ const linkList = {
     ],
     news: [
         {
-            title: '新浪微博',
+            title: '微博',
             url: 'https://weibo.com/',
             icon: img_path + 'weibo.png'
         },
@@ -167,6 +167,38 @@ const linkList = {
             url: 'https://2.taobao.com/',
             icon: img_path + 'xianyu.png'
         }
+    ],
+    resource: [
+        {
+            title: '磁力王',
+            url: 'https://www.ciliwang.club/',
+            icon: img_path + 'ciliwang.png'
+        },
+        {
+            title: '影视搜索',
+            url: 'http://ifkdy.com/',
+            icon: img_path + 'ifkdy.png'
+        },
+        {
+            title: '电影天堂',
+            url: 'https://www.dytt8.net/',
+            icon: img_path + 'dytt8.png'
+        },
+        {
+            title: '图床',
+            url: 'https://imgurl.org/',
+            icon: img_path + 'imgurl.png'
+        },
+        {
+            title: '流程图',
+            url: 'https://www.processon.com/',
+            icon: img_path + 'processon.png'
+        },
+        {
+            title: '下厨房',
+            url: 'http://www.xiachufang.com/',
+            icon: img_path + 'xiachufang.png'
+        },
     ]
 }
 
