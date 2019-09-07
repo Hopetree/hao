@@ -64,6 +64,6 @@ export default {
 <style scoped>
 img {
     width: 1.2rem;
-    margin: 0rem 0.2rem -0.2rem 0rem;
+    margin: 0 0.2rem -0.2rem 0;
 }
 </style>

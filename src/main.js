@@ -7,6 +7,7 @@ import ElementUI from 'element-ui'
 import routes from './router'
 import store from './store/index'
 
+import 'element-ui/lib/theme-chalk/display.css';
 import './assets/css/main.css'
 
 Vue.config.productionTip = false
