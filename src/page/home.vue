@@ -32,7 +32,7 @@ export default {
     margin-top: 10%;
 }
 #row-linkbox {
-    padding-top: 2rem;
+    padding-top: 4rem;
 }
 #col-linkbox {
     padding: 1rem .5rem .5rem .5rem;
