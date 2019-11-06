@@ -1,6 +1,12 @@
 const img_path = '/static/img/'
 
 const searchList = {
+    magi: {
+        title: 'Magi',
+        url: 'https://magi.com/search',
+        key: 'q',
+        icon: img_path + 'magi.png'
+    },
     doge: {
         title: 'Doge',
         url: 'https://www.dogedoge.com/results',
