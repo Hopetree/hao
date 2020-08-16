@@ -169,12 +169,17 @@ const linkList = {
             icon: img_path + 'dangdang.png'
         },
         {
-            title: '闲鱼',
-            url: 'https://2.taobao.com/',
-            icon: img_path + 'xianyu.png'
+            title: '小米有品',
+            url: 'https://www.xiaomiyoupin.com/',
+            icon: img_path + 'xiaomiyoupin.png'
         }
     ],
     resource: [
+        {
+            title: '电影天堂',
+            url: 'https://www.dytt8.net/',
+            icon: img_path + 'dytt8.png'
+        },
         {
             title: '磁力王',
             url: 'https://www.ciliwang.club/',
@@ -184,11 +189,6 @@ const linkList = {
             title: '影视搜索',
             url: 'http://ifkdy.com/',
             icon: img_path + 'ifkdy.png'
-        },
-        {
-            title: '电影天堂',
-            url: 'https://www.dytt8.net/',
-            icon: img_path + 'dytt8.png'
         },
         {
             title: '图床',
