@@ -181,14 +181,14 @@ const linkList = {
             icon: img_path + 'dytt8.png'
         },
         {
-            title: '磁力王',
-            url: 'https://www.ciliwang.club/',
-            icon: img_path + 'ciliwang.png'
+            title: '时光网',
+            url: 'http://www.mtime.com/',
+            icon: img_path + 'mtime.png'
         },
         {
-            title: '影视搜索',
-            url: 'http://ifkdy.com/',
-            icon: img_path + 'ifkdy.png'
+            title: '韩剧TV',
+            url: 'https://www.hanjutv.com/',
+            icon: img_path + 'hanjutv.ico'
         },
         {
             title: '图床',
