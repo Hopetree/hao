@@ -1,6 +1,18 @@
 const img_path = '/static/img/'
 
 const searchList = {
+    baidu: {
+        title: '百度',
+        url: 'https://www.baidu.com/s',
+        key: 'wd',
+        icon: img_path + 'icon_baidu.png'
+    },
+    zhihu: {
+        title: '知乎',
+        url: 'https://www.zhihu.com/search',
+        key: 'q',
+        icon: img_path + 'zhihu.ico'
+    },
     magi: {
         title: 'Magi',
         url: 'https://magi.com/search',
@@ -12,12 +24,6 @@ const searchList = {
         url: 'https://www.dogedoge.com/results',
         key: 'q',
         icon: img_path + 'icon_doge.png'
-    },
-    baidu: {
-        title: '百度',
-        url: 'https://www.baidu.com/s',
-        key: 'wd',
-        icon: img_path + 'icon_baidu.png'
     },
     bing: {
         title: '必应',
