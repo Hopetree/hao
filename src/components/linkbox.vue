@@ -14,13 +14,13 @@ export default {
     data() {
         return {
             linkList: [],
-            category: "common"
+            category: "common",
         };
     },
     created() {
         var _link_list = this.$store.getters.baselinks;
         this.linkList = _link_list;
-    }
+    },
 };
 </script>
 
