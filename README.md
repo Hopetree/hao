@@ -2,7 +2,7 @@
 
 > A simple navigation site project
 
-项目雏形（未完成，持续更新中）: <https://hao.tendcode.com>
+项目雏形（持续更新中）: <https://hao.tendcode.com>
 
 ## Build Setup
 
