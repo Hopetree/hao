@@ -3,12 +3,14 @@ import Vuex from 'vuex'
 
 import mutations from './mutations'
 import Data from '../config/utils'
+import SoulData from '../config/soul'
 
 Vue.use(Vuex)
 
 const state = {
     searchList: Data.searchList,
-    linkList: Data.linkList
+    linkList: Data.linkList,
+    soulList: SoulData.souls
 }
 
 const getters = {
