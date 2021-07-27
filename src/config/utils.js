@@ -13,17 +13,17 @@ const searchList = {
         key: 'q',
         icon: img_path + 'zhihu.ico'
     },
+    juejin: {
+        title: '掘金',
+        url: 'https://juejin.cn/search',
+        key: 'query',
+        icon: img_path + 'juejin.svg'
+    },
     magi: {
         title: 'Magi',
         url: 'https://magi.com/search',
         key: 'q',
         icon: img_path + 'magi.png'
-    },
-    doge: {
-        title: 'Doge',
-        url: 'https://www.dogedoge.com/results',
-        key: 'q',
-        icon: img_path + 'icon_doge.png'
     },
     bing: {
         title: '必应',
