@@ -19,29 +19,23 @@ const searchList = {
         key: 'query',
         icon: img_path + 'juejin.svg'
     },
-    magi: {
-        title: 'Magi',
-        url: 'https://magi.com/search',
+    github: {
+        title: 'Github',
+        url: 'https://github.com/search',
         key: 'q',
-        icon: img_path + 'magi.png'
+        icon: img_path + 'github.png'
+    },
+    gitee: {
+        title: 'Gitee',
+        url: 'https://search.gitee.com/',
+        key: 'q',
+        icon: img_path + 'gitee.png'
     },
     bing: {
         title: '必应',
         url: 'https://cn.bing.com/search',
         key: 'q',
         icon: img_path + 'icon_bing.png'
-    },
-    sogou: {
-        title: '搜狗',
-        url: 'https://www.sogou.com/web',
-        key: 'query',
-        icon: img_path + 'icon_sogou.png'
-    },
-    so: {
-        title: '360搜索',
-        url: 'https://www.so.com/s',
-        key: 'q',
-        icon: img_path + 'icon_360.png'
     },
     google: {
         title: 'Google',
