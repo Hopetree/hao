@@ -7,6 +7,6 @@ services:
     container_name: hao_nginx
     volumes:
       - ./hao.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./nginx/log:/var/log/nginx
+      - ./log:/var/log/nginx
     ports:
       - "8080:80"
