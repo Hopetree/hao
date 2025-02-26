@@ -1,4 +1,4 @@
-FROM node:slim AS stage
+FROM node:lts AS stage
 WORKDIR /opt/build
 
 # 定义 NPM_REGISTRY 构建参数
